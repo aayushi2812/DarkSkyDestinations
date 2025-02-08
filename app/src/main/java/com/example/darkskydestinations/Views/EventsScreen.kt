@@ -29,6 +29,7 @@ import com.example.darkskydestinations.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EventsScreen(list: SnapshotStateList<Event>, toEventDetailsScreen: (Event) -> Unit) {
+    //Events Screen gets static list of astronomical events of the year and displays them on the screen
 
     Scaffold (
         modifier = Modifier.fillMaxSize(),

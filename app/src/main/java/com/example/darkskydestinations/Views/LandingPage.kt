@@ -28,6 +28,9 @@ import com.example.darkskydestinations.ui.theme.DarkSkyDestinationsTheme
 
 @Composable
 fun LandingPage(toHomeScreen: () -> Unit) {
+
+    //Landing page shows the Welcome message and button to get started with the app
+
     Scaffold (
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
@@ -38,7 +41,6 @@ fun LandingPage(toHomeScreen: () -> Unit) {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
-            // Add your other composables here
         }
         Column(
             modifier = Modifier.fillMaxSize(),

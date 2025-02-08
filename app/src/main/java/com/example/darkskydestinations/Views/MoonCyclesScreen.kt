@@ -43,6 +43,8 @@ import java.util.Locale
 @Composable
 fun MoonCyclesScreen(moonCyclesViewModel: MoonCycleViewModel) {
 
+    //MoonCyclesScreen fetches moon cycles from the api and displays it here with the image
+
     var query by remember { mutableStateOf("") }
     var show by remember { mutableStateOf(false) }
     var searchResults by remember { mutableStateOf<Astronomy?>(null) }
@@ -76,7 +78,6 @@ fun MoonCyclesScreen(moonCyclesViewModel: MoonCycleViewModel) {
     LaunchedEffect(moonCyclesViewModel.astronomyResponse) {
         // Update searchResults when API response is available
         val response = moonCyclesViewModel.astronomyResponse?.body()
-        System.out.println("Response"+ response)
         searchResults = (response?.astronomy) as Astronomy?
 
     }

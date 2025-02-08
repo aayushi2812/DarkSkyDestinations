@@ -2,7 +2,7 @@ package com.example.darkskydestinations.ViewModels
 
 import com.example.darkskydestinations.Models.AstronomyObject
 import com.example.darkskydestinations.Models.Event
-import com.example.darkskydestinations.Models.EventsInterface
+import com.example.darkskydestinations.Networking.EventsInterface
 import com.example.darkskydestinations.Models.EventsService
 import com.example.darkskydestinations.Models.MoonCyclesAPIService
 import com.example.darkskydestinations.Models.PlacesAPIService

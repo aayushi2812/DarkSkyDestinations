@@ -11,6 +11,8 @@ import com.example.darkskydestinations.Models.Place
 abstract class AppDatabase : RoomDatabase() {
     abstract fun placeDao(): PlaceDao
 
+    //DB instance for favorite places
+
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null

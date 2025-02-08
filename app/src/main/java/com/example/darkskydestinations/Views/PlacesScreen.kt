@@ -50,6 +50,8 @@ import com.google.gson.Gson
 @Composable
 fun PlacesScreen(viewModel: PlacesViewModel, toPlaceDetailsScreen: (Place) -> Unit ){
 
+    //PlacesScreen fetches nearby places from api and displays them on the screen
+
     var query by remember { mutableStateOf("") }
     var searchResults by remember { mutableStateOf<List<Place>>(emptyList()) }
 
@@ -61,10 +63,10 @@ fun PlacesScreen(viewModel: PlacesViewModel, toPlaceDetailsScreen: (Place) -> Un
 
     LaunchedEffect(viewModel.apiPlacesObject) {
         val response = viewModel.apiPlacesObject?.body()
-        System.out.println("Response"+ response)
         searchResults = response?.results ?: emptyList()
     }
 
+    //toggling the favorite icon
     val onFavoriteToggle: (Place) -> Unit = { place ->
         val favoritePlace = place.toFavoritePlace() // Convert Place to FavoritePlaces
         val updatedFavoritePlace = favoritePlace.copy(isFavorite = !favoritePlace.isFavorite) // Toggle the favorite status
@@ -118,11 +120,13 @@ fun PlacesScreen(viewModel: PlacesViewModel, toPlaceDetailsScreen: (Place) -> Un
 }
 
 
+//code for each place in the lazy column
 @Composable
 fun PlaceItem(place: Place, toPlaceDetailsScreen: (Place) -> Unit={}, onFavoriteToggle: (Place) -> Unit={}) {
 
     val isFavorite = remember { mutableStateOf(place.toFavoritePlace().isFavorite) }
     val favoritePlace = place.toFavoritePlace()
+
     Card(
         modifier = Modifier
             .height(120.dp)
@@ -162,6 +166,8 @@ fun PlaceItem(place: Place, toPlaceDetailsScreen: (Place) -> Unit={}, onFavorite
         }
     }
 }
+
+//mapping place to favorite place
 fun Place.toFavoritePlace(): FavoritePlaces {
     return FavoritePlaces(
         place_id = this.place_id,
@@ -174,7 +180,7 @@ fun Place.toFavoritePlace(): FavoritePlaces {
         rating = this.rating,
         reference = this.reference,
         user_ratings_total = this.user_ratings_total,
-        isFavorite = false // Default value for isFavorite, you can set it dynamically later
+        isFavorite = false
     )
 }
 

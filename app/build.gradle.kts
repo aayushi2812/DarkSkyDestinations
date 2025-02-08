@@ -46,11 +46,16 @@ android {
 
 dependencies {
     implementation(libs.androidx.runtime.livedata)
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+    implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+    implementation(libs.androidx.appcompat)
     val nav_version = "2.8.5"
+    implementation ("com.google.accompanist:accompanist-permissions:0.30.0")
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation ("com.google.code.gson:gson:2.10.1")
-
+    implementation ("io.coil-kt:coil-compose:2.3.0")
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")

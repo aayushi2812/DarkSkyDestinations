@@ -48,14 +48,13 @@ import com.example.darkskydestinations.ViewModels.PlacesViewModel
 @Composable
 fun FavoritesScreen(viewModel: PlacesViewModel,toPlaceDetailsScreen: (Place) -> Unit={}){
 
+    //Favorites screen displays the places which were marked as favorite fetching from room DB
+
     var searchResults = viewModel.favoritePlaces.observeAsState(emptyList())
 
     val onFavoriteRemove: (Place) -> Unit = { place ->
-        val favoritePlace = place.toFavoritePlace() // Convert Place to FavoritePlaces
-        System.out.println("isfavorite" + favoritePlace.isFavorite)
-//        val updatedFavoritePlace = favoritePlace.copy(isFavorite = favoritePlace.isFavorite) // Toggle the favorite status
-        viewModel.deleteFavoritePlace(favoritePlace) // Save the updated FavoritePlace to Room
-        System.out.println("69:"+viewModel.favoritePlaces)
+        val favoritePlace = place.toFavoritePlace() //Converting place to favorite place
+        viewModel.deleteFavoritePlace(favoritePlace)
     }
 
     Scaffold {
@@ -88,6 +87,7 @@ fun FavoritesScreen(viewModel: PlacesViewModel,toPlaceDetailsScreen: (Place) -> 
     }
 }
 
+//Code for each item in lazy column
 @Composable
 fun FavoritePlaceItem(fplace: FavoritePlaces,toPlaceDetailsScreen: (Place) -> Unit={},onFavoriteRemove: (Place) -> Unit={}){
     val isFavorite = remember { mutableStateOf(fplace.isFavorite) }
@@ -118,9 +118,8 @@ fun FavoritePlaceItem(fplace: FavoritePlaces,toPlaceDetailsScreen: (Place) -> Un
                 )
             }
             IconButton(onClick = {
-                // Toggle the favorite status
                 isFavorite.value = !isFavorite.value
-                onFavoriteRemove(fplace.toPlace()) // Trigger the external function
+                onFavoriteRemove(fplace.toPlace())
             }) {
                 val icon = if (isFavorite.value) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder
                 Icon(
@@ -133,6 +132,7 @@ fun FavoritePlaceItem(fplace: FavoritePlaces,toPlaceDetailsScreen: (Place) -> Un
     }
 }
 
+//mapping favorite place to place
 fun FavoritePlaces.toPlace(): Place {
     return Place(
         place_id = this.place_id,

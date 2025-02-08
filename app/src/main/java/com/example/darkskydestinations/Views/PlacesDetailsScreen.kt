@@ -28,7 +28,7 @@ import com.google.gson.Gson
 @Composable
 fun PlacesDetailsScreen(place: Place){
 
-    System.out.println("In place details: " + place)
+    //Place details screen shows the details of the place which is clicked from the places screen
 
     Scaffold (
         modifier = Modifier.fillMaxSize()
@@ -89,16 +89,6 @@ fun PlacesDetailsScreen(place: Place){
                     fontSize = 18.sp,
                     modifier = Modifier.fillMaxWidth().padding(30.dp)
                 )
-//                Button(
-//                    onClick = {},
-//                    modifier = Modifier.fillMaxWidth(),
-//                    colors = ButtonDefaults.buttonColors(
-//                        contentColor = Color.White,
-//                        containerColor = Color.Black
-//                    ),
-//                ) {
-//                    Text("Mark as Favorite")
-//                }
             }
         }
     }

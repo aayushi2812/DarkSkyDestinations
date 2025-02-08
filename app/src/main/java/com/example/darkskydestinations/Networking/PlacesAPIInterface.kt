@@ -9,6 +9,8 @@ import retrofit2.http.Query
 
 interface PlacesAPIInterface {
 
+//    Places api configuration
+
     @Headers(
         "x-rapidapi-host: google-map-places.p.rapidapi.com",
         "x-rapidapi-key: ed3563df6fmshcefc9abf50bd9fbp1bd433jsn447263130352"

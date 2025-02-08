@@ -13,6 +13,7 @@ data class EventsContainer(
     val events: List<Event>
 )
 
+//Events service returning list of events
 class EventsService{
     val json =
         """

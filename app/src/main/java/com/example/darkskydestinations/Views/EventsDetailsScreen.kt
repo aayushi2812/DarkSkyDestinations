@@ -31,7 +31,7 @@ import com.google.gson.Gson
 @Composable
 fun EventsDetailsScreen(event: Event){
 
-    System.out.println("In event details: " + event)
+    //ApodScreen gets the picture of the day from NASA Api and displays it on the screen
 
     Scaffold (
         modifier = Modifier.fillMaxSize(),
@@ -58,7 +58,6 @@ fun EventsDetailsScreen(event: Event){
                     color = Color.White,
                     fontSize = 18.sp,
                     modifier = Modifier.fillMaxWidth().padding(30.dp),
-//                    textAlign = TextAlign.Center
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
@@ -66,7 +65,6 @@ fun EventsDetailsScreen(event: Event){
                     color = Color.White,
                     fontSize = 18.sp,
                     modifier = Modifier.fillMaxWidth().padding(30.dp),
-//                    textAlign = TextAlign.Center
                 )
             }
         }

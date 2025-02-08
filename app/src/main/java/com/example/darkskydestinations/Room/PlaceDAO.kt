@@ -11,6 +11,9 @@ import com.example.darkskydestinations.Models.FavoritePlaces
 
 @Dao
 interface PlaceDao {
+
+    //Queries to insert, uodate, delete and get all favorite places from room DB
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(place: FavoritePlaces)
 

@@ -8,8 +8,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.darkskydestinations.Models.Event
 import com.example.darkskydestinations.Models.Place
+import com.example.darkskydestinations.ViewModels.ApodViewModel
 import com.example.darkskydestinations.ViewModels.MoonCycleViewModel
 import com.example.darkskydestinations.ViewModels.PlacesViewModel
+import com.example.darkskydestinations.Views.ApodScreen
 import com.example.darkskydestinations.Views.EventsDetailsScreen
 import com.example.darkskydestinations.Views.EventsScreen
 import com.example.darkskydestinations.Views.FavoritesScreen
@@ -20,12 +22,15 @@ import com.example.darkskydestinations.Views.PlacesDetailsScreen
 import com.example.darkskydestinations.Views.PlacesScreen
 import com.google.gson.Gson
 
+
+//Composable to handle all the navigations
 @Composable
 fun DestinationsNav(
     list: SnapshotStateList<Event>,
     navHostController: NavHostController,
     placesViewModel: PlacesViewModel,
-    moonCyclesViewModel: MoonCycleViewModel
+    moonCyclesViewModel: MoonCycleViewModel,
+    apodViewModel: ApodViewModel
 ){
     val gson = Gson()
 
@@ -50,6 +55,9 @@ fun DestinationsNav(
                 },
                 toFavoritesScreen = {
                     navHostController.navigate("favorites")
+                },
+                toApodScreen = {
+                    navHostController.navigate("apod")
                 }
             )
         }
@@ -89,6 +97,10 @@ fun DestinationsNav(
                 val placeJson = Uri.encode(gson.toJson(place))
                 navHostController.navigate("place/$placeJson")
             })
+        }
+
+        composable(route = "apod") {
+            ApodScreen(apodViewModel)
         }
     }
 }

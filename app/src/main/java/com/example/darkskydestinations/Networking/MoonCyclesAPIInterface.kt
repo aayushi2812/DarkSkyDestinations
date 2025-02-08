@@ -8,7 +8,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Query
 
 interface MoonCyclesAPIInterface {
-
+    //    Moon cycles api configuration
     @GET("astronomy.json")
     suspend fun getAstronomyData(
         @Query("key") apiKey: String,

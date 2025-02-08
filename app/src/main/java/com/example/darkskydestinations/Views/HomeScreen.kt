@@ -29,6 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.darkskydestinations.R
 
+
+//Home screen shows the buttons that navigate to different screens
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
@@ -36,6 +38,7 @@ fun HomeScreen(
     toPlacesScreen: () -> Unit,
     toEventsScreen: () -> Unit,
     toFavoritesScreen: () -> Unit,
+    toApodScreen: () -> Unit
 ) {
     Scaffold { innerPadding ->
         Box(modifier = Modifier.fillMaxSize()) {
@@ -45,14 +48,13 @@ fun HomeScreen(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()
             )
-            // Add your other composables here
         }
 
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 16.dp), // Adjust padding as needed
+                .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -78,8 +80,8 @@ fun HomeScreen(
                     containerColor = Color.Black
                 ),
                 modifier = Modifier
-                    .height(56.dp) // Same height for all buttons
-                    .width(250.dp) // Same width for all buttons
+                    .height(56.dp)
+                    .width(250.dp)
                     .clip(RoundedCornerShape(16.dp))) {
                 Text(
                     text = "Astronomical Events",
@@ -93,8 +95,8 @@ fun HomeScreen(
                     containerColor = Color.Black
                 ),
                 modifier = Modifier
-                    .height(56.dp) // Same height for all buttons
-                    .width(250.dp) // Same width for all buttons
+                    .height(56.dp)
+                    .width(250.dp)
                     .clip(RoundedCornerShape(16.dp))
                 ) {
                 Text(
@@ -109,8 +111,8 @@ fun HomeScreen(
                     containerColor = Color.Black
                 ),
                 modifier = Modifier
-                    .height(56.dp) // Same height for all buttons
-                    .width(250.dp) // Same width for all buttons
+                    .height(56.dp)
+                    .width(250.dp)
                     .clip(RoundedCornerShape(16.dp))) {
                 Text(
                     text = "Moon Cycles",
@@ -125,12 +127,28 @@ fun HomeScreen(
                     containerColor = Color.Black
                 ),
                 modifier = Modifier
-                    .height(56.dp) // Same height for all buttons
-                    .width(250.dp) // Same width for all buttons
+                    .height(56.dp)
+                    .width(250.dp)
                     .clip(RoundedCornerShape(16.dp))) {
                 Text(
                     text = "Favorite Places",
                     fontSize = 17.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(onClick = {toApodScreen()},
+                colors = ButtonDefaults.buttonColors(
+                    contentColor = Color.White,
+                    containerColor = Color.Black
+                ),
+                modifier = Modifier
+                    .height(56.dp)
+                    .width(250.dp)
+                    .clip(RoundedCornerShape(16.dp))) {
+                Text(
+                    text = "Astronomy Picture of the Day",
+                    fontSize = 17.sp,
+                    textAlign = TextAlign.Center
                 )
             }
         }

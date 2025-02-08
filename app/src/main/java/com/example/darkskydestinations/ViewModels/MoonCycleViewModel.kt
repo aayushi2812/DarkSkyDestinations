@@ -16,7 +16,7 @@ import retrofit2.Response
 
 class MoonCycleViewModel(var appRepo: AppRepository) : ViewModel() {
 
-//    var apiMoonCyclesObject by mutableStateOf<AstronomyObject>()
+    //Fetches mooncycles api data and returns it to the view
 
     var astronomyResponse by mutableStateOf<Response<AstronomyObject>?>(null)
 
@@ -25,7 +25,6 @@ class MoonCycleViewModel(var appRepo: AppRepository) : ViewModel() {
     fun getMoonCycles(q: String, dt: String){
         viewModelScope.launch {
             val wo = appRepo.getMoonCycles(apiKey, q, dt)
-            System.out.println(wo.body())
             astronomyResponse = wo
         }
     }

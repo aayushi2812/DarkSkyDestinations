@@ -9,6 +9,7 @@ object RetrofitClass {
 
     private const val MOON_BASE_URL = "https://api.weatherapi.com/v1/"
 
+    //Place api retrofit
     val placeRetrofitObject: PlacesAPIInterface by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -17,6 +18,7 @@ object RetrofitClass {
             .create(PlacesAPIInterface::class.java)
     }
 
+    //Moon cycles api retrofit
     val moonCycleRetrofitObject: MoonCyclesAPIInterface by lazy {
         Retrofit.Builder()
             .baseUrl(MOON_BASE_URL)
